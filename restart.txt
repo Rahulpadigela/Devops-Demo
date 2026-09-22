@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# REPLACE these variables with your actual values
+INSTANCE_ID="i-0abc123def456"
+REGION="us-east-1"
+
+echo "Attempting to reboot instance: $INSTANCE_ID in region: $REGION..."
+
+# Execute the reboot command
+aws ec2 reboot-instances --instance-ids "$INSTANCE_ID" --region "$REGION"
+
+if [ $? -eq 0 ]; then
+    echo "Reboot request successfully queued."
+else
+    echo "Failed to reboot instance. Please check your credentials and Instance ID."
+fi
+
+
+
+
